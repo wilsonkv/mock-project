@@ -26,7 +26,7 @@ export class Header extends Component {
             to={'/home'}
             onClick={e => this.handleLogout(e)}
           >
-            Sign Out
+            Log Out
           </Link>
         </div>
       );
