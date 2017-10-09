@@ -1,0 +1,58 @@
+@import 'variables';
+
+.header-wrapper {
+  background-color: $header-color-left;
+  background-image: linear-gradient(to right, $header-color-left, $header-color-right);
+  height: 40px;
+  margin-bottom: 10px;
+  box-shadow: 2px 2px 2px black;
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  margin: 0 auto;
+  max-width: 1080px; 
+}
+
+.header__title {
+  font-size: 20px;
+}
+
+.header__logo-link {
+  color: $font-color-default;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.header__links {
+  display: flex;
+  align-self: center;
+}
+
+.header__link {
+  align-self: center;
+  color: #FFF;
+  text-decoration: none;
+  padding: 10px 45px 8px;
+
+  &:hover {
+    border-bottom: 3px solid $accent-color;
+    padding-bottom: 5px;
+  }
+}
+
+.header__link-menu {
+}
+
+#header-menu {
+}
+
+.header__menu-list {
+}
+
+.header__menu__item {
+}

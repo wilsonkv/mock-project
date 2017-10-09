@@ -1,0 +1,75 @@
+@import 'variables';
+
+.page-wrapper {
+  margin: 20px;
+}
+
+.page {
+  margin: 0 auto;
+  max-width: 1080px;
+}
+
+.with-footer {
+  margin-bottom: 75px;
+}
+
+.breadcrumb-link {
+  display: flex;
+  align-items: center;
+  color: $link-color;
+  margin-top: 10px;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  .md-icon {
+    color: $link-color;
+  }
+}
+
+.breadcrumb-link:hover {
+  color: #5CD2FF;
+}
+
+.md-selection-control-label {
+  .md-text--theme-secondary {
+    color: #4BA661 !important;
+  }
+}
+
+.card {
+  margin: 0 auto 20px;
+}
+
+.error {
+  background-color: $error-color-background;
+  border: 1px solid black;
+  color: $font-color-default;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.list {
+}
+
+.md-floating-label--active {
+  color: $font-color-dull !important;
+}
+
+.md-divider--text-field::after{
+  background: $font-color-dull !important;
+}
+
+.logo {
+  cursor: pointer;
+  width: 50%;
+  margin-top: 7px;
+}
+
+.border-bottom {
+  border-bottom: 1px solid $form-accent;
+}

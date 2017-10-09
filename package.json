@@ -1,0 +1,61 @@
+{
+  "name": "react-app-template",
+  "version": "0.0.1",
+  "private": true,
+  "engines": {
+    "node": ">=7.10.1"
+  },
+  "devDependencies": {
+    "custom-react-scripts": "^0.0.23",
+    "enzyme": "^2.8.2",
+    "eslint": "^3.19.0",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-react": "^7.0.0",
+    "eslint-watch": "^3.1.0",
+    "fetch-mock": "^5.10.1",
+    "husky": "^0.13.3",
+    "lint-staged": "^3.4.0",
+    "prettier": "^1.2.2",
+    "react-test-renderer": "^15.5.4",
+    "redux-mock-store": "^1.2.3",
+    "sessionstorage": "^0.0.2"
+  },
+  "dependencies": {
+    "classnames": "^2.2.5",
+    "format-json": "^1.0.3",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "node-sass": "^4.5.2",
+    "prop-types": "^15.5.8",
+    "react": "^15.5.4",
+    "react-addons-css-transition-group": "^15.5.2",
+    "react-addons-transition-group": "^15.5.2",
+    "react-dom": "^15.5.4",
+    "react-loader": "^2.4.2",
+    "react-md": "^1.0.13",
+    "react-redux": "^5.0.3",
+    "react-router": "^4.1.1",
+    "react-router-dom": "^4.1.1",
+    "react-router-redux": "next",
+    "react-stripe-elements": "^0.0.8",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
+     "webfontloader": "^1.6.27"
+  },
+  "scripts": {
+    "build": "npm run lint && npm run test:once && react-scripts build",
+    "eject": "react-scripts eject",
+    "precommit": "lint-staged",
+    "start": "react-scripts start",
+    "lint": "eslint src/**/*.js",
+    "lint:watch": "esw -w src/**/*.js",
+    "test": "react-scripts test --env=jsdom --runInBand",
+    "test:once": "CI=true react-scripts test --env=jsdom --runInBand"
+  },
+  "lint-staged": {
+    "{src,__{test|mocks}__}/**/*.js": [
+      "prettier --single-quote --trailing-comma es5 --write",
+      "git add"
+    ]
+  }
+}

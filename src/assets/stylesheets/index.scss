@@ -1,0 +1,47 @@
+@import '~react-md/src/scss/react-md';
+@import 'variables';
+@import 'mixins';
+
+// react-md color palette settings must come before react-md-everything
+$md-light-theme: false;
+$md-primary-color: $accent-color;
+$md-secondary-color: #009DDA;
+$md-font-family: 'Hind', sans-serif;
+
+@include react-md-everything;
+
+html {
+  background-color: $background-color-default;
+  font-size: 15px;
+}
+
+body {
+  color: $font-color-default;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  margin: 12px 0;
+}
+
+h2 {
+  font-size: 38px;
+  font-weight: bold;
+  margin: 60px 0 50px;
+}
+
+h3 {
+  color: $font-color-dull;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+h2 ~ h3 {
+  margin-top: -50px;
+}
+
+// TODO: find sassvar for default dark color
+.md-background--card {
+  background-color: $background-color-secondary !important;
+}
