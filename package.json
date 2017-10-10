@@ -1,5 +1,5 @@
 {
-  "name": "react-app-template",
+  "name": "mock-project",
   "version": "0.0.1",
   "private": true,
   "engines": {
@@ -40,7 +40,7 @@
     "react-stripe-elements": "^0.0.8",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0",
-     "webfontloader": "^1.6.27"
+    "webfontloader": "^1.6.27"
   },
   "scripts": {
     "build": "npm run lint && npm run test:once && react-scripts build",
