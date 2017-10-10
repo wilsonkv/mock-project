@@ -12,19 +12,15 @@ export class HomePage extends Component {
   }
 
   //Similar like pageLoad event
-  componentDidMount() {
- 
-  }
+  componentDidMount() {}
 
- render() {
+  render() {
     return (
       <div className="page-wrapper">
         <div className="page">
           <h2>Welcome to sample React App!</h2>
-          <div id="home-page__null-state">
-          {/* Page contents goes here! */}
-          </div>
-         </div>
+          <div id="home-page__null-state">Content added by Asa</div>
+        </div>
       </div>
     );
   }
