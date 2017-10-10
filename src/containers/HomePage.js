@@ -19,8 +19,11 @@ export class HomePage extends Component {
       <div className="page-wrapper">
         <div className="page">
           <h2>Welcome to sample React App!</h2>
+
           <div id="home-page__null-state">Content added by Asa</div>
         </div>
+
+        <div id="home-page__null-state">Sample text inserted by radeep</div>
       </div>
     );
   }
