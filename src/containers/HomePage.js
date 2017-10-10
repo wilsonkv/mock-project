@@ -22,7 +22,7 @@ export class HomePage extends Component {
         <div className="page">
           <h2>Welcome to sample React App!</h2>
           <div id="home-page__null-state">
-          {/* Page contents goes here! */}
+          Sample text inserted by radeep
           </div>
          </div>
       </div>
