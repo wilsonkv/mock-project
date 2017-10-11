@@ -24,6 +24,7 @@ export class HomePage extends Component {
         <div>Content added by Asa</div>
         <div>Content added by Alvin</div>
         <div>Content added by Radeep</div>
+        <div>Newly added text by Radeep</div>
       </div>
     );
   }
