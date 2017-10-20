@@ -18,14 +18,13 @@ class User {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Basic ' + btoa('teamb:bulls'),
+        Authorization: 'Basic ' + btoa('mock:password'),
         jwt,
       },
     });
 
     return await response.json();
   }
-
 }
 
 export default new User();
