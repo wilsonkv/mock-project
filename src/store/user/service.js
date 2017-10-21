@@ -1,13 +1,23 @@
+import sessionStorage from 'sessionstorage';
+
 const URL = process.env.REACT_APP_SERVER_URL;
 
 class User {
-  async login(email, password) {
-    const response = await fetch(`${URL}/login`, {
-      method: 'POST',
+  _getToken() {
+    return sessionStorage.getItem('jwt');
+  }
+
+  async get(searchText) {
+    const jwt = this._getToken();
+
+    const response = await fetch(`${URL}/users`, {
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa('mock:password'),
+        jwt,
+        body: JSON.stringify({ searchText }),
       },
-      body: JSON.stringify({ email, password }),
     });
 
     return await response.json();
@@ -21,6 +31,18 @@ class User {
         Authorization: 'Basic ' + btoa('mock:password'),
         jwt,
       },
+    });
+
+    return await response.json();
+  }
+
+  async login(email, password) {
+    const response = await fetch(`${URL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
     });
 
     return await response.json();
