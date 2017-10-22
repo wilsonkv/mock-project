@@ -18,11 +18,11 @@ const initialState = {
 function user(state = initialState, action) {
   switch (action.type) {
     case FETCH_ALL_USERS_REQUEST:
-      return { ...initialState, loading: true };
+      return { ...initialState, data: state.data, loading: true };
     case FETCH_ALL_USERS_SUCCESS:
       return { ...initialState, data: state.data, users: action.users };
     case FETCH_ALL_USERS_FAILURE:
-      return { ...initialState, error: action.error };
+      return { ...initialState, data: state.data, error: action.error };
 
     case LOGIN_REQUEST:
       return { ...initialState, loading: true };

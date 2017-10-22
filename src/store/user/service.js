@@ -47,6 +47,22 @@ class User {
 
     return await response.json();
   }
+
+  async patch(user) {
+    const jwt = this._getToken();
+
+    const response = await fetch(`${URL}/users`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa('mock:password'),
+        jwt,
+        body: JSON.stringify({ user }),
+      },
+    });
+
+    return await response.json();
+  }
 }
 
 export default new User();

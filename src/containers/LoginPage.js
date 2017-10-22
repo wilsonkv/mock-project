@@ -38,7 +38,7 @@ export class LoginPage extends Component {
   }
 
   renderError() {
-    if (this.props.error) {
+    if (typeof this.props.error === 'string') {
       return <div className="error">{this.props.error}</div>;
     }
   }

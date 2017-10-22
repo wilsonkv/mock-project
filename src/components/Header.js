@@ -21,6 +21,9 @@ export class Header extends Component {
           <Link className="header__link" to={'/home'}>
             Home
           </Link>
+          <Link className="header__link" to={'/profile'}>
+            Edit Profile
+          </Link>
           <Link
             className="header__link"
             to={'/home'}
