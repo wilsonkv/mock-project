@@ -1,13 +1,13 @@
 import { routerReducer } from 'react-router-redux';
 import { combineReducers } from 'redux';
 
-//import dataSources from './dataSources/reducer';
+import location from './location/reducer';
 import user from './user/reducer';
 
 const root = combineReducers({
- // dataSources,
   router: routerReducer,
   user,
+  location,
 });
 
 export default root;

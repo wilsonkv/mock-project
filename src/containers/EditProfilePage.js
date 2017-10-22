@@ -9,7 +9,7 @@ import TextField from 'react-md/lib/TextFields';
 import Loader from 'react-loader';
 import SelectField from 'react-md/lib/SelectFields';
 
-//import { fetchLocations } from '../store/companies/actions';
+import { fetchLocations } from '../store/location/actions';
 //import { updateProfile } from '../store/user/actions';
 //import '../assets/stylesheets/SignUpPage.scss';
 
@@ -24,7 +24,7 @@ export class EditProfilePage extends Component {
   }
 
   componentDidMount() {
-    //this.props.dispatch(fetchCompanies());
+    this.props.dispatch(fetchLocations());
   }
 
   onSubmit(e) {
@@ -46,7 +46,7 @@ export class EditProfilePage extends Component {
     } = this.state;
 
     return (
-      firstName.length > 0 &&
+      // firstName.length > 0 &&
       // lastName.length > 0 &&
       // locationId > 0 &&
       // email.length > 0 &&
@@ -89,16 +89,16 @@ export class EditProfilePage extends Component {
                   onChange={lastName => this.setState({ lastName })}
                   value={this.state.lastName}
                 />
-                {/* <SelectField
-                  id="companies"
+                <SelectField
+                  id="locations"
                   itemLabel="name"
                   itemValue="id"
-                  label="Company"
-                  menuItems={this.props.companies}
-                  onChange={companyId => this.setState({ companyId })}
+                  label="Location"
+                  menuItems={this.props.locations}
+                  onChange={locationId => this.setState({ locationId })}
                   position={SelectField.Positions.BELOW}
-                  value={this.state.companyId}
-                /> */}
+                  value={this.state.locationId}
+                />
                 <TextField
                   id="email"
                   label="Email"
@@ -149,10 +149,13 @@ export class EditProfilePage extends Component {
 
 EditProfilePage.propTypes = {
   userData: PropTypes.object,
+  locations: PropTypes.array,
 };
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    locations: state.location.locations,
+  };
 }
 
 export default connect(mapStateToProps)(EditProfilePage);
