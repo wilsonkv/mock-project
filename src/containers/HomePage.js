@@ -23,7 +23,7 @@ export class HomePage extends Component {
   }
 
   renderUsers(users) {
-    if (!users) {
+    if (!users.length) {
       return <div id="home-page__null-state">No data available currently!</div>;
     }
 
