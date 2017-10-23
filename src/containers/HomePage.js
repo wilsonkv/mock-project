@@ -3,8 +3,14 @@ import { connect } from 'react-redux';
 import FontIcon from 'react-md/lib/FontIcons';
 import PropTypes from 'prop-types';
 import TextField from 'react-md/lib/TextFields';
+import Loader from 'react-loader';
+import { Card, CardTitle, CardText } from 'react-md';
+
+import { fetchAllUsers } from '../store/user/actions';
 
 import '../assets/stylesheets/HomePage.scss';
+
+const style = { maxWidth: 800 };
 
 export class HomePage extends Component {
   constructor(props) {
@@ -12,19 +18,45 @@ export class HomePage extends Component {
   }
 
   //Similar like pageLoad event
-  componentDidMount() {}
+  componentDidMount() {
+    this.props.dispatch(fetchAllUsers());
+  }
+
+  renderUsers(users) {
+    if (!users) {
+      return <div id="home-page__null-state">No data available currently!</div>;
+    }
+
+    return (
+      <div className="list">
+        {users.map(user => {
+          return (
+            <div>
+              <Card style={style} className="md-block-centered">
+                <CardTitle
+                  title={`${user.firstName} ${user.lastName}`}
+                  subtitle={`${user.email} | ${user.location}`}
+                />
+                <CardText>{user.aboutMe}</CardText>
+              </Card>
+              <br />
+            </div>
+          );
+        })}
+      </div>
+    );
+  }
 
   render() {
     return (
       <div className="page-wrapper">
         <div className="page">
-          <h2>Welcome to sample React App!</h2>
-          <div id="home-page__null-state" />
+          <Loader color="#fff" loaded={!this.props.loading}>
+            <div id="home-page__null-state">
+              {this.renderUsers(this.props.users)}
+            </div>
+          </Loader>
         </div>
-        <div>Content added by Asa</div>
-        <div>Content added by Alvin</div>
-        <div>Content added by Radeep</div>
-        <div>Newly added text by Radeep</div>
       </div>
     );
   }
@@ -32,12 +64,13 @@ export class HomePage extends Component {
 
 HomePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
-  dataSources: PropTypes.array,
+  users: PropTypes.array,
 };
 
 function mapStateToProps(state) {
   return {
-    // dataSources: state.dataSources.list,
+    users: state.user.users,
+    loading: state.user.loading,
   };
 }
 

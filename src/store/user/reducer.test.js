@@ -9,6 +9,7 @@ import user from './reducer';
 describe('items reducer', () => {
   const initialState = {
     data: {},
+    users: {},
     loading: false,
     error: '',
   };
@@ -21,6 +22,7 @@ describe('items reducer', () => {
       const action = { type: LOGIN_REQUEST };
       const expectedState = {
         data: {},
+        users: {},
         loading: true,
         error: '',
       };
@@ -34,6 +36,7 @@ describe('items reducer', () => {
         data: {
           name: 'Example',
         },
+        users: {},
         loading: false,
         error: '',
       };
@@ -45,6 +48,7 @@ describe('items reducer', () => {
       const action = { type: LOGIN_FAILURE, error: 'Boom!' };
       const expectedState = {
         data: {},
+        users: {},
         loading: false,
         error: 'Boom!',
       };
@@ -56,6 +60,7 @@ describe('items reducer', () => {
       const action = { type: LOGOUT };
       const expectedState = {
         data: {},
+        users: {},
         loading: false,
         error: '',
       };

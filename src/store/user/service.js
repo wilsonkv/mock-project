@@ -1,6 +1,41 @@
+import sessionStorage from 'sessionstorage';
+
 const URL = process.env.REACT_APP_SERVER_URL;
 
 class User {
+  _getToken() {
+    return sessionStorage.getItem('jwt');
+  }
+
+  async get(searchText) {
+    const jwt = this._getToken();
+
+    const response = await fetch(`${URL}/users`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa('mock:password'),
+        jwt,
+        body: JSON.stringify({ searchText }),
+      },
+    });
+
+    return await response.json();
+  }
+
+  async getMe(jwt) {
+    const response = await fetch(`${URL}/users/me`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Basic ' + btoa('mock:password'),
+        jwt,
+      },
+    });
+
+    return await response.json();
+  }
+
   async login(email, password) {
     const response = await fetch(`${URL}/login`, {
       method: 'POST',
@@ -13,19 +48,21 @@ class User {
     return await response.json();
   }
 
-  async getMe(jwt) {
-    const response = await fetch(`${URL}/users/me`, {
-      method: 'GET',
+  async patch(user) {
+    const jwt = this._getToken();
+
+    const response = await fetch(`${URL}/users`, {
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: 'Basic ' + btoa('teamb:bulls'),
+        Authorization: 'Basic ' + btoa('mock:password'),
         jwt,
+        body: JSON.stringify({ user }),
       },
     });
 
     return await response.json();
   }
-
 }
 
 export default new User();
