@@ -9,3 +9,4 @@ A react-redux mock project to head start and explore react redux application dev
 * `$ npm start` to view the app in the browser.
 * `$ npm test` to run the test watch script.
 * `$ npm run lint:watch` to run the auxiliary linter, which checks for PropType usage, etc.
+*
